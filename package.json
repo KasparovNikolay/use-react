@@ -7,9 +7,7 @@
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "up": "pnpm version patch",
-    "pub": "pnpm publish"
+    "preview": "vite preview"
   },
   "files": [
     "dist",
