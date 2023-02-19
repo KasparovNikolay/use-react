@@ -1,0 +1,31 @@
+{
+  "name": "@kasparovnikolay/use-react",
+  "private": false,
+  "license": "MIT",
+  "version": "1.0.1",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\"",
+    "upgrade": "npm version patch",
+    "pub": "npm publish"
+  },
+  "files": [
+    "dist",
+    "public/README.md"
+  ],
+  "main": "./dist/useReact.umd.js",
+  "module": "./dist/useReact.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/useReact.es.js",
+      "require": "./dist/useReact.umd.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
