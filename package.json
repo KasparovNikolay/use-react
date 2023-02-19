@@ -8,8 +8,8 @@
     "start": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "up": "npm version patch",
-    "pub": "npm publish"
+    "up": "pnpm version patch",
+    "pub": "pnpm publish"
   },
   "files": [
     "dist",
