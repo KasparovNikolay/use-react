@@ -15,8 +15,7 @@
 3. Update the Changelog
 4. Update the Version Number:
 ```pnpm version => major | minor | patch```
-4.1) Or by hand:
-update version in package.json & package-lock.json
+4.1) Or by hand: update version in package.json & package-lock.json
 ```git commit -am '2.0.0'```
 ```git tag v2.0.0```
 5. Publish to npm:
