@@ -9,7 +9,7 @@ const useWhyDidYouUpdate = (name: string, p: unknown): void => {
   useEffect(() => {
     if (previousProps.current) {
       const allKeys = Object.keys({ ...previousProps.current, ...props });
-      const changesObj = {} as {[key: string]: unknown};
+      const changesObj = {} as { [key: string]: unknown };
 
       allKeys.forEach((key) => {
         if (previousProps.current[key] !== props[key as keyof typeof props]) {

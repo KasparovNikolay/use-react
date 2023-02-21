@@ -1,9 +1,15 @@
-import {useEffect, useMemo, useRef} from "react";
+import { useEffect, useMemo, useRef } from 'react';
 
-const useIntersectionObserver = (callback: IntersectionObserverCallback, config?: IntersectionObserverInit,) =>{
+const useIntersectionObserver = (
+  callback: IntersectionObserverCallback,
+  config?: IntersectionObserverInit
+) => {
   const element = useRef(null);
 
-  const observer = useMemo(() => new window.IntersectionObserver(callback, config), [callback, config]);
+  const observer = useMemo(
+    () => new window.IntersectionObserver(callback, config),
+    [callback, config]
+  );
 
   useEffect(() => {
     if (element && element.current) {
@@ -15,7 +21,7 @@ const useIntersectionObserver = (callback: IntersectionObserverCallback, config?
     };
   }, []);
 
-  return {ref: element, observer }
-}
+  return { ref: element, observer };
+};
 
 export default useIntersectionObserver;

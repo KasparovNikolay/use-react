@@ -1,12 +1,15 @@
-import {MutableRefObject, useState} from 'react';
-import {useIntersectionObserver} from "../useIntersectionObserver";
+import { MutableRefObject, useState } from 'react';
 
-type useLazyLoadType = (config?: IntersectionObserverInit) => [boolean | null, MutableRefObject<null>];
+import { useIntersectionObserver } from '../useIntersectionObserver';
 
-export const useLazyLoad:useLazyLoadType = (config) => {
+type useLazyLoadType = (
+  config?: IntersectionObserverInit
+) => [boolean | null, MutableRefObject<null>];
+
+const useLazyLoad: useLazyLoadType = (config) => {
   const [show, setShow] = useState<boolean | null>(null);
 
-  const {ref, observer} = useIntersectionObserver((entries, obs) => {
+  const { ref, observer } = useIntersectionObserver((entries, obs) => {
     const [{ isIntersecting }] = entries;
     if (isIntersecting) {
       setShow(true);
@@ -16,3 +19,5 @@ export const useLazyLoad:useLazyLoadType = (config) => {
 
   return [show, ref];
 };
+
+export default useLazyLoad;

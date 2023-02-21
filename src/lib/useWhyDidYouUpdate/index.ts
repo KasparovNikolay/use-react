@@ -1,1 +1,1 @@
-export {default as useWhyDidYouUpdate} from './useWhyDidYouUpdate'
+export { default as useWhyDidYouUpdate } from './useWhyDidYouUpdate';
