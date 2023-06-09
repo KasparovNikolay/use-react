@@ -4,6 +4,10 @@
 2. useWhyDidYouUpdate
 3. useIntersectionObserver
 
+TODO:
+добавить автоатизацию
+https://github.com/KasparovNikolay/marketolog-site/new/master?filename=.github%2Fworkflows%2Fnpm-publish.yml&workflow_template=ci%2Fnpm-publish
+
 # Порядок публикации
 
 1. Safety Checks:

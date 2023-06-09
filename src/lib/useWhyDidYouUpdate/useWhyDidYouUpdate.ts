@@ -8,19 +8,18 @@ const useWhyDidYouUpdate = (name: string, p: unknown): void => {
 
   useEffect(() => {
     if (previousProps.current) {
-      const allKeys = Object.keys({ ...previousProps.current, ...props });
-      const changesObj = {} as { [key: string]: unknown };
+      const changesObj = new Map();
 
-      allKeys.forEach((key) => {
+      for (const key in { ...previousProps.current, ...props }) {
         if (previousProps.current[key] !== props[key as keyof typeof props]) {
-          changesObj[key] = {
+          changesObj.set(key, {
             from: previousProps.current[key],
             to: props[key],
-          };
+          });
         }
-      });
+      }
 
-      if (Object.keys(changesObj).length) {
+      if (changesObj.size) {
         console.log('[why-did-you-update]', name, changesObj);
       }
     }

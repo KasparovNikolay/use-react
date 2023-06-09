@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 const useIntersectionObserver = (
   callback: IntersectionObserverCallback,
@@ -6,12 +6,8 @@ const useIntersectionObserver = (
 ) => {
   const element = useRef(null);
 
-  const observer = useMemo(
-    () => new window.IntersectionObserver(callback, config),
-    [callback, config]
-  );
-
   useEffect(() => {
+    const observer = new window.IntersectionObserver(callback, config);
     if (element && element.current) {
       observer.observe(element.current as HTMLElement);
     }
@@ -19,9 +15,9 @@ const useIntersectionObserver = (
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [callback, config]);
 
-  return { ref: element, observer };
+  return element;
 };
 
 export default useIntersectionObserver;

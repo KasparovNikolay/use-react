@@ -4,16 +4,16 @@ import { useIntersectionObserver } from '../useIntersectionObserver';
 
 type useLazyLoadType = (
   config?: IntersectionObserverInit
-) => [boolean | null, MutableRefObject<null>];
+) => [boolean, MutableRefObject<null>];
 
 const useLazyLoad: useLazyLoadType = (config) => {
-  const [show, setShow] = useState<boolean | null>(null);
+  const [show, setShow] = useState<boolean>(false);
 
-  const { ref, observer } = useIntersectionObserver((entries, obs) => {
+  const ref = useIntersectionObserver((entries, obs) => {
     const [{ isIntersecting }] = entries;
     if (isIntersecting) {
       setShow(true);
-      observer.disconnect();
+      obs.disconnect();
     }
   }, config);
 
